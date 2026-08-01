@@ -1,0 +1,454 @@
+/* Esolar Maintenance Tracker - styles */
+
+:root {
+    --esolar-navy: #16233f;
+    --esolar-navy-dark: #0e1729;
+    --esolar-gold: #f0a93c;
+    --esolar-slate: #6c7a91;
+    --esolar-green: #2f9e6e;
+
+    --bs-primary: var(--esolar-navy);
+    --bs-primary-rgb: 22, 35, 63;
+    --bs-link-color: var(--esolar-navy);
+    --bs-link-hover-color: var(--esolar-navy-dark);
+}
+
+body {
+    background-color: #f7f8fa;
+}
+
+/* Same as .btn-primary above: Bootstrap's shipped CSS bakes link color in
+   at build time, so the --bs-link-color variable alone doesn't reach it. */
+a {
+    color: var(--esolar-navy);
+}
+
+a:hover {
+    color: var(--esolar-navy-dark);
+}
+
+.esolar-app-shell {
+    min-height: 100vh;
+}
+
+/* Bootstrap's responsive offcanvas (.offcanvas-md) forces
+   background-color: transparent !important above the md breakpoint, where
+   it becomes a plain static sidebar - our own !important is needed to win
+   back the navy fill at that size. */
+.esolar-sidebar {
+    --bs-offcanvas-width: 240px;
+    width: 240px;
+    flex-shrink: 0;
+    background-color: var(--esolar-navy) !important;
+    min-height: 100vh;
+}
+
+.esolar-sidebar .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.esolar-sidebar .offcanvas-body {
+    padding: 0 0.85rem 1.25rem;
+}
+
+.esolar-sidebar .nav-item + .nav-item {
+    margin-top: 0.3rem;
+}
+
+.esolar-sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0.65rem 0.85rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.esolar-sidebar .nav-link svg {
+    flex-shrink: 0;
+    opacity: 0.85;
+}
+
+.esolar-sidebar .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.esolar-sidebar .nav-link.active {
+    color: var(--esolar-navy-dark);
+    background-color: var(--esolar-gold);
+    font-weight: 600;
+}
+
+.esolar-sidebar .nav-link.active svg {
+    opacity: 1;
+}
+
+.esolar-sidebar-langs {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.esolar-sidebar-brand {
+    padding: 1.75rem 1rem 1.25rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.esolar-brand-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: #fff;
+}
+
+.esolar-brand-stacked:hover {
+    color: #fff;
+}
+
+.esolar-brand-stacked .esolar-logo-icon {
+    height: 48px;
+    width: 48px;
+}
+
+.esolar-brand-name {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.03em;
+}
+
+.esolar-brand-tagline {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--esolar-gold);
+}
+
+.esolar-mobile-topbar {
+    background-color: var(--esolar-navy);
+}
+
+.esolar-mobile-topbar .navbar-brand {
+    color: #fff;
+}
+
+.esolar-sidebar-toggle {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.esolar-sidebar-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+/* Bootstrap's shipped CSS bakes .btn-primary's colors in at build time, so
+   overriding --bs-primary alone doesn't reach it - set the colors directly. */
+.btn-primary {
+    background-color: var(--esolar-navy);
+    border-color: var(--esolar-navy);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--esolar-navy-dark) !important;
+    border-color: var(--esolar-navy-dark) !important;
+}
+
+.btn-outline-primary {
+    color: var(--esolar-navy);
+    border-color: var(--esolar-navy);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: var(--esolar-navy) !important;
+    border-color: var(--esolar-navy) !important;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-brand .esolar-logo-mark {
+    height: 24px;
+    width: auto;
+}
+
+.esolar-sidebar .navbar-brand {
+    color: #fff;
+}
+
+.btn-lang {
+    font-weight: 600;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.btn-lang.active {
+    background-color: var(--esolar-gold);
+    border-color: var(--esolar-gold);
+    color: var(--esolar-navy-dark);
+}
+
+.btn-lang:not(.active) {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+.btn-lang:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.badge-status-pending_dispatch,
+.badge-status-with_technician,
+.badge-status-in_repair,
+.badge-status-ready_for_pickup,
+.badge-status-returned_to_customer {
+    font-weight: 600;
+}
+
+.badge-status-pending_dispatch {
+    background-color: #dfe3ea;
+    color: var(--esolar-navy-dark);
+}
+
+.badge-status-with_technician {
+    background-color: var(--esolar-slate);
+    color: #fff;
+}
+
+.badge-status-in_repair {
+    background-color: var(--esolar-gold);
+    color: var(--esolar-navy-dark);
+}
+
+.badge-status-ready_for_pickup {
+    background-color: var(--esolar-navy);
+    color: #fff;
+}
+
+.badge-status-returned_to_customer {
+    background-color: var(--esolar-green);
+    color: #fff;
+}
+
+.stat-card {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    height: 100%;
+}
+
+.stat-card-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--esolar-navy);
+    line-height: 1.1;
+}
+
+.stat-card-label {
+    font-size: 0.8rem;
+    color: var(--esolar-slate);
+    margin-top: 0.25rem;
+}
+
+.stat-card-danger .stat-card-value {
+    color: #a3271c;
+}
+
+.age-badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.age-badge-normal {
+    background-color: #eef0f4;
+    color: var(--esolar-slate);
+}
+
+.age-badge-warning {
+    background-color: #fdf1dc;
+    color: #92650f;
+}
+
+.age-badge-danger {
+    background-color: #fbe3e1;
+    color: #a3271c;
+}
+
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: var(--esolar-navy);
+}
+
+.icon-btn:hover {
+    background-color: var(--esolar-navy);
+    border-color: var(--esolar-navy);
+    color: #fff;
+}
+
+.icon-btn + .icon-btn {
+    margin-inline-start: 0.35rem;
+}
+
+.icon-btn.disabled {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.empty-state-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--esolar-slate);
+    margin-bottom: 1rem;
+}
+
+.empty-state-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.receipt-signature-line {
+    border-bottom: 1px solid #333;
+    display: inline-block;
+    min-width: 260px;
+}
+
+.receipt-logo-mark {
+    height: 36px;
+    width: auto;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background-color: #dee2e6;
+    border: 1px solid #dee2e6;
+}
+
+.calendar-weekday {
+    background-color: var(--esolar-navy);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem 0.25rem;
+}
+
+.calendar-day {
+    background-color: #fff;
+    min-height: 100px;
+    padding: 0.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.calendar-day.calendar-day-empty {
+    background-color: #fafbfc;
+}
+
+.calendar-day-number {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--esolar-navy);
+}
+
+.calendar-day.calendar-day-today {
+    background-color: #fff9ec;
+}
+
+.calendar-chip {
+    display: block;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Calendar chips are colored by which of the 4 process actions they
+   represent (not the record's current overall status), so a "Dispatched"
+   event always looks the same regardless of what happened to the record
+   afterwards. */
+.calendar-chip-given {
+    background-color: var(--esolar-slate);
+    color: #fff;
+}
+
+.calendar-chip-dispatched {
+    background-color: var(--esolar-gold);
+    color: var(--esolar-navy-dark);
+}
+
+.calendar-chip-retrieved {
+    background-color: var(--esolar-navy);
+    color: #fff;
+}
+
+.calendar-chip-returned {
+    background-color: var(--esolar-green);
+    color: #fff;
+}
+
+@media print {
+    .esolar-sidebar,
+    .esolar-mobile-topbar,
+    footer,
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .container,
+    .container-fluid,
+    .esolar-main {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .receipt-container {
+        border: none !important;
+        box-shadow: none !important;
+    }
+}
